@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AlertNet | Fire Response System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div>
+            <h1>ALERTNET</h1>
+            <p>Centralized Hazard & Fire Response System</p>
+        </div>
+
+        <div class="connection">
+            <span id="connectionDot"></span>
+            <span id="connectionText">Connecting...</span>
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <!-- SYSTEM STATUS -->
+        <section class="status-card" id="systemStatus">
+            <div>
+                <span class="status-label">SYSTEM STATUS</span>
+                <h2 id="statusText">CHECKING...</h2>
+            </div>
+
+            <div class="status-icon" id="statusIcon">
+                ?
+            </div>
+        </section>
+
+
+        <!-- SENSOR CARDS -->
+        <section class="sensor-grid">
+
+            <div class="sensor-card">
+                <span>Temperature</span>
+                <strong id="temperature">-- °C</strong>
+                <small>DHT22</small>
+            </div>
+
+            <div class="sensor-card">
+                <span>Humidity</span>
+                <strong id="humidity">-- %</strong>
+                <small>DHT22</small>
+            </div>
+
+            <div class="sensor-card">
+                <span>Gas Level</span>
+                <strong id="gasLevel">--</strong>
+                <small>MQ-2</small>
+            </div>
+
+            <div class="sensor-card">
+                <span>Scan Angle</span>
+                <strong id="scanAngle">--°</strong>
+                <small>360° Scanner</small>
+            </div>
+
+        </section>
+
+
+        <!-- DETECTION STATUS -->
+        <section class="panel">
+
+            <div class="panel-title">
+                <h2>Detection Status</h2>
+            </div>
+
+            <div class="detection-grid">
+
+                <div class="detection-item">
+                    <span>Flame Detection</span>
+                    <strong id="flameStatus">--</strong>
+                </div>
+
+                <div class="detection-item">
+                    <span>Hazard Detection</span>
+                    <strong id="hazardStatus">--</strong>
+                </div>
+
+                <div class="detection-item">
+                    <span>Device</span>
+                    <strong id="deviceId">--</strong>
+                </div>
+
+                <div class="detection-item">
+                    <span>Last Update</span>
+                    <strong id="lastUpdate">--</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESPONSE STATUS -->
+        <section class="panel">
+
+            <div class="panel-title">
+                <h2>Response System</h2>
+            </div>
+
+            <div class="response-grid">
+
+                <div class="response-item">
+                    <span>Water Pump</span>
+                    <strong id="pumpStatus">--</strong>
+                </div>
+
+                <div class="response-item">
+                    <span>Alarm</span>
+                    <strong id="alarmStatus">--</strong>
+                </div>
+
+                <div class="response-item">
+                    <span>Operating Mode</span>
+                    <strong id="modeStatus">--</strong>
+                </div>
+
+                <div class="response-item">
+                    <span>Target Angle</span>
+                    <strong id="targetAngle">--°</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SCANNER -->
+        <section class="panel">
+
+            <div class="panel-title">
+                <h2>360° Scanning Platform</h2>
+            </div>
+
+            <div class="scanner">
+
+                <div class="scanner-circle">
+
+                    <div class="direction north">0°</div>
+                    <div class="direction east">90°</div>
+                    <div class="direction south">180°</div>
+                    <div class="direction west">270°</div>
+
+                    <div class="scanner-line" id="scannerLine"></div>
+
+                    <div class="scanner-center"></div>
+
+                </div>
+
+                <div class="angle-display">
+                    Current Angle:
+                    <strong id="scannerAngle">--°</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EVENT HISTORY -->
+        <section class="panel">
+
+            <div class="panel-title">
+                <h2>Hazard Event History</h2>
+            </div>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Event</th>
+                            <th>Severity</th>
+                            <th>Temperature</th>
+                            <th>Gas</th>
+                            <th>Angle</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="eventTable">
+                        <tr>
+                            <td colspan="7">Loading events...</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            <p>AlertNet Centralized Hazard & Fire Response System</p>
+            <p>Device: <span id="footerDevice">alertnet01</span></p>
+        </footer>
+
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
